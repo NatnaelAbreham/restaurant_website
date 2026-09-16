@@ -27,7 +27,7 @@ useEffect(() => {
                 price: item.price,
                 categoryId: item.categoryId,
                 category: item.categoryId === 1 ? "Food" : "Drinks",
-                image: `http://10.13.10.21:8687/${item.imageUrl}`,
+                image: `/uploads/${item.imageUrl}`,
                 popular: false,
 
                 // Stock information
