@@ -24,7 +24,7 @@ const Menu = ({ limit }) => {
           price: item.price,
           categoryId: item.categoryId,
           category: item.categoryId === 1 ? "Food" : "Drinks",
-          image: `/uploads/${item.imageUrl}`,
+          image: `http://10.13.10.21:8687/uploads/${item.imageUrl.replace(/^itemimage[\\/]/, "")}`,
           popular: false,
 
           // Stock information
