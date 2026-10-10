@@ -16,7 +16,7 @@ const Menu = ({ limit }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
-
+const API_BASE_URL = "http://10.13.10.21:8687";
   const { darkMode } = useTheme();
 
   // =========================================================
@@ -58,10 +58,14 @@ const Menu = ({ limit }) => {
         categoryId: item.categoryId,
         category: item.categoryId === 1 ? "Food" : "Drinks",
 
-        image: `/uploads/${(item.imageUrl ?? "").replace(
-          /^itemimage[\\/]/,
-          ""
-        )}`,
+        
+
+
+// Inside your data.map()
+image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
+  /^itemimage[\\/]/,
+  ""
+)}`,
 
         popular: false,
 
