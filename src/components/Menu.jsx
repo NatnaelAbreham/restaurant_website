@@ -16,7 +16,7 @@ const Menu = ({ limit }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
-const API_BASE_URL = "http://10.13.10.21:8687";
+  const API_BASE_URL = "http://10.13.10.21:8687";
   const { darkMode } = useTheme();
 
   // =========================================================
@@ -58,14 +58,11 @@ const API_BASE_URL = "http://10.13.10.21:8687";
         categoryId: item.categoryId,
         category: item.categoryId === 1 ? "Food" : "Drinks",
 
-        
-
-
-// Inside your data.map()
-image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
-  /^itemimage[\\/]/,
-  ""
-)}`,
+        // Inside your data.map()
+        image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
+          /^itemimage[\\/]/,
+          ""
+        )}`,
 
         popular: false,
 
@@ -210,8 +207,8 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
     activeCategory === "All"
       ? menuItems
       : menuItems.filter(
-          (item) => item.category === activeCategory
-        );
+        (item) => item.category === activeCategory
+      );
 
   const displayItems = limit
     ? filteredItems.slice(0, limit)
@@ -224,19 +221,17 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
   if (loadingStatus || (loading && menuStatus?.isOpen)) {
     return (
       <section
-        className={`min-h-[500px] flex items-center justify-center ${
-          darkMode
+        className={`min-h-[500px] flex items-center justify-center ${darkMode
             ? "bg-gray-950 text-white"
             : "bg-[#e7f2fd] text-gray-900"
-        }`}
+          }`}
       >
         <div className="text-center">
           <div className="w-10 h-10 border-4 border-orange-500/30 border-t-orange-500 rounded-full animate-spin mx-auto mb-4" />
 
           <p
-            className={`text-sm ${
-              darkMode ? "text-gray-400" : "text-gray-500"
-            }`}
+            className={`text-sm ${darkMode ? "text-gray-400" : "text-gray-500"
+              }`}
           >
             {loadingStatus
               ? "Checking menu availability..."
@@ -254,27 +249,24 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
   if (error) {
     return (
       <section
-        className={`min-h-[500px] flex items-center justify-center px-4 ${
-          darkMode
+        className={`min-h-[500px] flex items-center justify-center px-4 ${darkMode
             ? "bg-gray-950 text-white"
             : "bg-[#e7f2fd] text-gray-900"
-        }`}
+          }`}
       >
         <div
-          className={`text-center p-8 rounded-2xl border ${
-            darkMode
+          className={`text-center p-8 rounded-2xl border ${darkMode
               ? "bg-gray-900 border-gray-800"
               : "bg-white border-gray-100"
-          }`}
+            }`}
         >
           <div className="text-4xl mb-3">!</div>
 
           <p className="text-red-500 font-medium">{error}</p>
 
           <p
-            className={`text-sm mt-2 ${
-              darkMode ? "text-gray-500" : "text-gray-400"
-            }`}
+            className={`text-sm mt-2 ${darkMode ? "text-gray-500" : "text-gray-400"
+              }`}
           >
             Please try again.
           </p>
@@ -310,11 +302,10 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
   if (menuStatus && !menuStatus.isOpen) {
     return (
       <section
-        className={`min-h-screen flex items-center justify-center px-5 py-16 transition-colors duration-300 ${
-          darkMode
+        className={`min-h-screen flex items-center justify-center px-5 py-16 transition-colors duration-300 ${darkMode
             ? "bg-gray-950 text-white"
             : "bg-[#e7f2fd] text-gray-900"
-        }`}
+          }`}
       >
         <div className="w-full max-w-2xl text-center">
           <div className="mx-auto mb-7 flex h-24 w-24 items-center justify-center rounded-full bg-orange-500/10 text-5xl">
@@ -330,9 +321,8 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
           </h1>
 
           <p
-            className={`mx-auto mt-5 max-w-lg text-base leading-7 sm:text-lg ${
-              darkMode ? "text-gray-400" : "text-gray-600"
-            }`}
+            className={`mx-auto mt-5 max-w-lg text-base leading-7 sm:text-lg ${darkMode ? "text-gray-400" : "text-gray-600"
+              }`}
           >
             We're not accepting menu orders right now, but
             we'll be delighted to serve you when we reopen.
@@ -340,16 +330,14 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
 
           {menuStatus.nextOpening && (
             <div
-              className={`mx-auto mt-9 max-w-md rounded-3xl border p-7 shadow-xl ${
-                darkMode
+              className={`mx-auto mt-9 max-w-md rounded-3xl border p-7 shadow-xl ${darkMode
                   ? "border-gray-800 bg-gray-900"
                   : "border-white bg-white/80"
-              }`}
+                }`}
             >
               <p
-                className={`text-sm font-medium ${
-                  darkMode ? "text-gray-400" : "text-gray-500"
-                }`}
+                className={`text-sm font-medium ${darkMode ? "text-gray-400" : "text-gray-500"
+                  }`}
               >
                 WE OPEN IN
               </p>
@@ -359,9 +347,8 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
               </div>
 
               <div
-                className={`text-sm ${
-                  darkMode ? "text-gray-300" : "text-gray-600"
-                }`}
+                className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
               >
                 {menuStatus.nextOpeningDay && (
                   <span>{menuStatus.nextOpeningDay}</span>
@@ -395,11 +382,10 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
 
   return (
     <section
-      className={`relative overflow-hidden min-h-screen transition-colors duration-300 ${
-        darkMode
+      className={`relative overflow-hidden min-h-screen transition-colors duration-300 ${darkMode
           ? "bg-gray-950 text-white"
           : "bg-[#e7f2fd] text-gray-900"
-      }`}
+        }`}
     >
       {/* Decorative background elements */}
       <div className="absolute top-20 -left-24 w-72 h-72 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -410,11 +396,10 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
         {/* HEADER */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-widest mb-5 ${
-              darkMode
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-widest mb-5 ${darkMode
                 ? "bg-orange-500/10 text-orange-400 border border-orange-500/20"
                 : "bg-orange-50 text-orange-600 border border-orange-100"
-            }`}
+              }`}
           >
             <span className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
 
@@ -422,9 +407,8 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
           </div>
 
           <h2
-            className={`text-4xl sm:text-5xl font-bold tracking-tight ${
-              darkMode ? "text-white" : "text-gray-900"
-            }`}
+            className={`text-4xl sm:text-5xl font-bold tracking-tight ${darkMode ? "text-white" : "text-gray-900"
+              }`}
           >
             {limit ? (
               <>
@@ -439,9 +423,8 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
           </h2>
 
           <p
-            className={`mt-4 text-base sm:text-lg leading-7 ${
-              darkMode ? "text-gray-400" : "text-gray-500"
-            }`}
+            className={`mt-4 text-base sm:text-lg leading-7 ${darkMode ? "text-gray-400" : "text-gray-500"
+              }`}
           >
             {limit
               ? "A selection of dishes our guests love, prepared with fresh ingredients and authentic flavor."
@@ -450,17 +433,15 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
 
           <div className="flex items-center justify-center gap-3 mt-7">
             <span
-              className={`w-12 h-px ${
-                darkMode ? "bg-gray-800" : "bg-gray-200"
-              }`}
+              className={`w-12 h-px ${darkMode ? "bg-gray-800" : "bg-gray-200"
+                }`}
             />
 
             <span className="w-2 h-2 rounded-full bg-orange-500" />
 
             <span
-              className={`w-12 h-px ${
-                darkMode ? "bg-gray-800" : "bg-gray-200"
-              }`}
+              className={`w-12 h-px ${darkMode ? "bg-gray-800" : "bg-gray-200"
+                }`}
             />
           </div>
         </div>
@@ -472,13 +453,12 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-                  activeCategory === category
+                className={`relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === category
                     ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20 scale-105"
                     : darkMode
-                    ? "bg-gray-900 text-gray-400 border border-gray-800 hover:border-orange-500/40 hover:text-orange-400"
-                    : "bg-white text-gray-600 border border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm"
-                }`}
+                      ? "bg-gray-900 text-gray-400 border border-gray-800 hover:border-orange-500/40 hover:text-orange-400"
+                      : "bg-white text-gray-600 border border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm"
+                  }`}
               >
                 {category}
 
@@ -500,11 +480,10 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
         ) : (
           <div className="text-center py-20">
             <div
-              className={`w-16 h-16 mx-auto mb-5 rounded-full flex items-center justify-center text-2xl ${
-                darkMode
+              className={`w-16 h-16 mx-auto mb-5 rounded-full flex items-center justify-center text-2xl ${darkMode
                   ? "bg-gray-900 text-gray-600"
                   : "bg-white text-gray-300"
-              }`}
+                }`}
             >
               🍽
             </div>
@@ -514,9 +493,8 @@ image: `${API_BASE_URL}/uploads/${(item.imageUrl ?? "").replace(
             </h3>
 
             <p
-              className={`mt-2 text-sm ${
-                darkMode ? "text-gray-500" : "text-gray-500"
-              }`}
+              className={`mt-2 text-sm ${darkMode ? "text-gray-500" : "text-gray-500"
+                }`}
             >
               There are no items in this category right now.
             </p>
