@@ -121,7 +121,7 @@ const OrderSuccess = ({
                         </span>
 
                         <span className="font-bold">
-                            ${Number(order.totalPrice).toFixed(2)}
+                            {Number(order.totalPrice).toFixed(2)} ETB
                         </span>
                     </div>
 
