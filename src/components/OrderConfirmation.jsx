@@ -237,13 +237,13 @@ const OrderConfirmation = ({
                                 </p>
 
                                 <p className="text-sm text-gray-500">
-                                    {item.quantity} × ${item.price}
+                                    {item.quantity} × {item.price} ETB
                                 </p>
 
                             </div>
 
                             <p className="font-semibold text-orange-500">
-                                ${(item.price * item.quantity).toFixed(2)}
+                                {(item.price * item.quantity).toFixed(2)} ETB
                             </p>
 
                         </div>
@@ -265,7 +265,7 @@ const OrderConfirmation = ({
                     </span>
 
                     <span className="text-lg font-bold text-orange-500">
-                        ${totalPrice.toFixed(2)}
+                        {totalPrice.toFixed(2)} ETB
                     </span>
 
                 </div>

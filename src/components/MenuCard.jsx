@@ -93,7 +93,7 @@ const MenuCard = ({ item }) => {
 
           <div className="shrink-0">
             <span className="text-lg font-bold text-orange-500">
-              ${Number(item.price).toFixed(2)}
+              {Number(item.price).toFixed(2)} ETB
             </span>
           </div>
         </div>
