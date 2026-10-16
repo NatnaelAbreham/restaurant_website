@@ -26,6 +26,7 @@ const Navbar = () => {
     { name: "Menu", path: "/menu" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
+    { name: "Game", path: "/food-memory-game" },
   ];
 
   const closeMobileMenu = () => {
