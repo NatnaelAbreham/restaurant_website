@@ -11,6 +11,8 @@ import AddMenu from '../menu/AddMenu.jsx';
 import UpdateMenu from '../menu/UpdateMenu.jsx';
 import InventoryPage from '../menu/InventoryPage.jsx';
 import About from '../pages/About.jsx';
+import FoodMemoryGame from "../game/FoodMemoryGame.jsx";
+
 const AppRoutes = () => {
   return (
     <Routes>
