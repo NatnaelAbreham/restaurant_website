@@ -29,6 +29,7 @@ const Navbar = () => {
     { name: "Game", path: "/food-memory-game" },
   ];
 
+
   const closeMobileMenu = () => {
     setMobileOpen(false);
   };
