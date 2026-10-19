@@ -105,6 +105,7 @@ const OrderConfirmation = ({
     // VERIFY OTP
     // ==========================================
 
+
     const handleVerifyOtp = async () => {
         if (otp.length !== 6) {
             setOtpError("Please enter the 6-digit OTP");
@@ -115,13 +116,9 @@ const OrderConfirmation = ({
             setIsVerifying(true);
             setOtpError("");
 
-            // ==========================================
-            // STEP 1: VERIFY OTP
-            // ==========================================
-
             const otpResponse = await api.post("/verifyotp", {
-                phoneNumber: phoneNumber,
-                otp: otp
+                phoneNumber,
+                otp
             });
 
             if (!otpResponse.data.success) {
@@ -131,55 +128,70 @@ const OrderConfirmation = ({
                 return;
             }
 
-            // ==========================================
-            // STEP 2: CREATE ORDER
-            // ==========================================
+            // OTP verified. Wait for customer confirmation.
+            setIsVerified(true);
+
+        } catch (error) {
+            console.error("OTP verification failed:", error);
+
+            setOtpError(
+                error.response?.data?.message ||
+                "Failed to verify OTP"
+            );
+        } finally {
+            setIsVerifying(false);
+        }
+    };
+
+    const handleConfirmOrder = async () => {
+        if (isConfirming || !isVerified) return;
+
+        try {
+            setIsConfirming(true);
+            setOtpError("");
 
             const orderResponse = await api.post("/createorder", {
-                phoneNumber: phoneNumber,
+                phoneNumber,
                 accountNumber: null,
                 paymentMethod: "Cash",
                 totalAmount: totalPrice,
-
                 items: cartItems.map((item) => ({
                     itemId: item.id,
                     quantity: item.quantity
                 }))
             });
 
-            if (orderResponse.data.success) {
-
-                const order = orderResponse.data.data;
-
-                console.log("Order created:", order);
-
-                setIsVerified(true);
-
-                // Clear cart only AFTER backend confirms order creation
-                clearCart();
-
-                // Close confirmation modal
-                onClose();
-
-                // Show success information
-                onOrderCreated(order);
+            if (!orderResponse.data.success) {
+                setOtpError(
+                    orderResponse.data.message ||
+                    "Failed to create order"
+                );
+                return;
             }
-        } catch (error) {
 
-            console.error(
-                "Order creation failed:",
-                error
-            );
+            const order = orderResponse.data.data;
+
+            console.log("Order created:", order);
+
+            // Clear the cart only after successful order creation
+            clearCart();
+
+            // Close modal and notify parent
+            onClose();
+            onOrderCreated(order);
+
+        } catch (error) {
+            console.error("Order creation failed:", error);
 
             setOtpError(
                 error.response?.data?.message ||
                 "Failed to create order"
             );
-
         } finally {
-            setIsVerifying(false);
+            setIsConfirming(false);
         }
     };
+
 
     if (!isOpen) return null;
 

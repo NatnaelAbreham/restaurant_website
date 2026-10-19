@@ -25,7 +25,7 @@ const OrderConfirmation = ({
     const [isVerified, setIsVerified] = useState(false);
     const [isSendingOtp, setIsSendingOtp] = useState(false);
 
-    const [isConfirming, setIsConfirming] = useState(false);
+  /*   const [isConfirming, setIsConfirming] = useState(false); */
 
     useEffect(() => {
         if (isOpen) {
