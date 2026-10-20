@@ -12,6 +12,7 @@ import UpdateMenu from '../menu/UpdateMenu.jsx';
 import InventoryPage from '../menu/InventoryPage.jsx';
 import About from '../pages/About.jsx';
 import FoodMemoryGame from "../game/TicTacToe.jsx";
+import CatchTheFood from "../game/CatchTheFood.jsx";
 
 const AppRoutes = () => {
   return (
@@ -27,7 +28,7 @@ const AppRoutes = () => {
       {/* <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/report" element={<Report />} /> */}
       <Route path="/about" element={<About />} />
-      <Route path="/food-memory-game" element={<FoodMemoryGame />} />
+      <Route path="/food-memory-game" element={<CatchTheFood />} />
     </Routes>
   );
 };
