@@ -13,6 +13,7 @@ import InventoryPage from '../menu/InventoryPage.jsx';
 import About from '../pages/About.jsx';
 import FoodMemoryGame from "../game/TicTacToe.jsx";
 import CatchTheFood from "../game/CatchTheFood.jsx";
+import HungrySnake from "../game/HungrySnake.jsx";
 
 const AppRoutes = () => {
   return (
