@@ -29,7 +29,7 @@ const AppRoutes = () => {
       {/* <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/report" element={<Report />} /> */}
       <Route path="/about" element={<About />} />
-      <Route path="/food-memory-game" element={<CatchTheFood />} />
+      <Route path="/food-memory-game" element={<HungrySnake />} />
     </Routes>
   );
 };
