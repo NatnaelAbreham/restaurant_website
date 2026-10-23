@@ -14,6 +14,7 @@ import About from '../pages/About.jsx';
 import FoodMemoryGame from "../game/TicTacToe.jsx";
 import CatchTheFood from "../game/CatchTheFood.jsx";
 import HungrySnake from "../game/HungrySnake.jsx";
+import FoodQuiz from "../game/FoodQuiz.jsx";
 
 const AppRoutes = () => {
   return (
@@ -30,6 +31,7 @@ const AppRoutes = () => {
       <Route path="/report" element={<Report />} /> */}
       <Route path="/about" element={<About />} />
       <Route path="/food-memory-game" element={<HungrySnake />} />
+      <Route path="/food-quiz" element={<FoodQuiz />} />
     </Routes>
   );
 };
