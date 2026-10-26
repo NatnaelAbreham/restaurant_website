@@ -36,6 +36,9 @@ const AppRoutes = () => {
       <Route path="/about" element={<About />} />
       <Route path="/food-memory-game" element={<HungrySnake />} />
       <Route path="/food-quiz" element={<FoodQuiz />} />
+      <Route path="/catch-the-food" element={<CatchTheFood />} />
+      <Route path="/pizza-slice-rush" element={<PizzaSliceRush />} />
+      {/* <Route path="/food-puzzle" element={<FoodPuzzle />} /> */}
     </Routes>
   );
 };
