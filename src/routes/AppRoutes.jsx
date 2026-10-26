@@ -15,6 +15,10 @@ import FoodMemoryGame from "../game/TicTacToe.jsx";
 import CatchTheFood from "../game/CatchTheFood.jsx";
 import HungrySnake from "../game/HungrySnake.jsx";
 import FoodQuiz from "../game/FoodQuiz.jsx";
+import PizzaSliceRush from "../game/PizzaSliceRush.jsx";
+//import FoodPuzzle from "../game/FoodPuzzle.jsx";
+
+import PizzaSliceRush from "../game/PizzaSliceRush.jsx";
 
 const AppRoutes = () => {
   return (
